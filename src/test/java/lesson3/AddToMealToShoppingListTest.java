@@ -2,6 +2,7 @@ package lesson3;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static io.restassured.RestAssured.given;
 
@@ -44,7 +45,10 @@ public class AddToMealToShoppingListTest extends AbstractTest {
     }
 
 
-    @AfterAll
+
+
+        // @AfterAll
+
     void tearDown() {
 
         String id = given()
@@ -67,8 +71,6 @@ public class AddToMealToShoppingListTest extends AbstractTest {
                 .delete("https://api.spoonacular.com/mealplanner/sabrina-schroeder88/shopping-list/items" + id)
                 .then()
                 .statusCode(200);
-
-
     }
 }
 
